@@ -14,6 +14,10 @@ var users = require('./app_server/routes/users');
 
 var app = express();
 
+//jwt secret
+app.set("secret", "qweqweqwe");
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server', 'views'));
 app.set('view engine', 'ejs');

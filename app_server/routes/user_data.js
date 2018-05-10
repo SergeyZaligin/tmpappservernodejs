@@ -68,13 +68,13 @@ function check_login(login, password) {
 }
 /* GET home page. */
 router.get('*', function(req, res, next) {
-  req.data = { user: {username: 'SomeUser', roles: ["R1", "ROLE2", "ROLE_3"]} }
-//   var data = {};
-//   var token = req.cookies["auth_token"];
-//   if(token){
-//       data.user = get_user(token, req.app.get('secret'));
-//   }
-//   req.data = data;
+  //req.data = { user: {username: 'SomeUser', roles: ["R1", "ROLE2", "ROLE_3"]} }
+  var data = {};
+  var token = req.cookies["auth_token"];
+  if(token){
+      data.user = get_user(token, req.app.get('secret'));
+  }
+  req.data = data;
   next();
 });
 

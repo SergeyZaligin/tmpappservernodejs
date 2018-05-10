@@ -1,3 +1,7 @@
 module.exports.index = function(req, res) {
-  res.render('index', { title: 'Home page' });
+  var data = req.data;
+  res.render('index', { 
+    title: 'Home page', 
+    data
+  });
 };
