@@ -10,7 +10,13 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/login', function(req, res, next) {
-  res.render('login', { title: 'Login page' });
+  var data = req.data;
+  if(data.user.is_authenticated){
+    res.redirect('/');
+  }else{
+    res.render('login', { title: 'Login page' });
+  }
+  
 });
 
 router.post('/login', function(req, res, next) {
@@ -33,7 +39,7 @@ router.post('/login', function(req, res, next) {
 
         if(user_result.is_authenticated == true){
           var secret = req.app.get('secret');
-          var token = user_data.get_token(user_result.user, secret);
+          var token = user_data.get_token(user_result, secret);
 
           res.cookie('auth_token', token);
           console.log(token);
