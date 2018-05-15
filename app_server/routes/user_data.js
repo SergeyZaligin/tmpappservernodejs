@@ -72,7 +72,7 @@ router.get('*', function(req, res, next) {
   var data = {};
   var token = req.cookies["auth_token"];
   if(token){
-      data.user = get_user(token, req.app.get('secret'));
+      data = get_user(token, req.app.get('secret'));
   }
   req.data = data;
   next();

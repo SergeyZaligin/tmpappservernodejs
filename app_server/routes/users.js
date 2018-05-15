@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/login', function(req, res, next) {
   var data = req.data;
-  if(data.user.is_authenticated){
+  if(data.is_authenticated){
     res.redirect('/');
   }else{
     res.render('login', { title: 'Login page' });
@@ -43,7 +43,10 @@ router.post('/login', function(req, res, next) {
 
           res.cookie('auth_token', token);
           console.log(token);
-          res.redirect('/');
+          
+            //res.redirect('/');
+          
+          
         }
       }
     }

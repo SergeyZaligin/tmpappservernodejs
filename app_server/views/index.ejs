@@ -1,12 +1,17 @@
 <% include partials/header %>
 
-  <% if (data.user.username) { %>
+  <% if (data.user.is_authenticated) { %>
     <li class="nav-item">
       <a class="nav-link disabled" href="/">
-        Auth - Yes!!!
+        Auth - Yes!!!<%= data.user.username %>
       </a>
     </li>
-  <% } %>
+  
 
-  <h1><%= title %> - <%= data.user.username %></h1>
+  
+
+  <% } %>
+  <h1>
+    <%= title %> - <%= data.user.username %>
+  </h1>
 <% include partials/footer %>
